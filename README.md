@@ -17,19 +17,20 @@
 This docker image wraps around the Nexus IQ CLI. It performs a component intelligence evaluation against the files in the mounted workspace.
 
 ## Usage
-Run image with the command ```evaluate``` and the options listed below.
+Run image with appropriate options and the list of files or directories which are to be evaluated.
+
+Example: ```docker run -it registry.gitlab.com/hokiegeek/docker-nexus-iq-cli:latest [OPTIONS] [FILES/DIRECTORY TO SCAN]```
 
 See the [Nexus IQ CLI](https://help.sonatype.com/display/NXI/Nexus+IQ+CLI) help page for available options.
 
 ### Required options
--s, --server-url
--a, --authentication
--t, --stage
--i, --application-id
+* -s, --server-url
+* -a, --authentication
+* -t, --stage
+* -i, --application-id
 
 ## The Fine Print
-It is worth noting that this is **NOT SUPPORTED** by Sonatype, and is a contribution of HokieGeek
-plus us to the open source community (read: you!)
+It is worth noting that this is **NOT SUPPORTED** by Sonatype, and is a contribution of ours to the open source community (read: you!)
 
 Remember:
 
