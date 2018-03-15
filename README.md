@@ -19,7 +19,7 @@ This docker image wraps around the Nexus IQ CLI. It performs a component intelli
 ## Usage
 Run image with appropriate options and the list of files or directories which are to be evaluated.
 
-Example: ```docker run -it registry.gitlab.com/hokiegeek/docker-nexus-iq-cli:latest [OPTIONS] [FILES/DIRECTORY TO SCAN]```
+Example: ```docker run -it -v $PWD:/workspace docker-nexus-iq-cli:latest [OPTIONS] [FILES/DIRECTORY TO SCAN]```
 
 See the [Nexus IQ CLI](https://help.sonatype.com/display/NXI/Nexus+IQ+CLI) help page for available options.
 
