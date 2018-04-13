@@ -18,7 +18,7 @@ RUN apk add --no-cache bash curl
 
 COPY evaluate /usr/local/bin/
 
-ADD https://download.sonatype.com/clm/scanner/nexus-iq-cli-1.45.0-01.jar /opt/nexus-iq-cli.jar
+ADD https://download.sonatype.com/clm/scanner/nexus-iq-cli-1.46.0-01.jar /opt/nexus-iq-cli.jar
 
 RUN mkdir -p /workspace
 
