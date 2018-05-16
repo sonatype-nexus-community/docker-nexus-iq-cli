@@ -11,7 +11,6 @@ build-docker:
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $IMAGE_TAG .
     - docker build --tag $IMAGE_TAG --build-arg IQ_VERSION=${IQ_CLI_VERSION}-01 .
     - docker tag $IMAGE_TAG $IMAGE_LATEST_TAG
     - docker push $IMAGE_TAG
