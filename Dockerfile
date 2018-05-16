@@ -12,15 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM openjdk:8-jre-alpine
-
 ARG IQ_VERSION
+
+FROM sonatype/nexus-iq-server:${IQ_VERSION}
+
+FROM openjdk:8-jre-alpine
 
 RUN apk add --no-cache bash curl
 
 COPY evaluate /usr/local/bin/
 
-ADD https://download.sonatype.com/clm/scanner/nexus-iq-cli-${IQ_VERSION}.jar /opt/nexus-iq-cli.jar
+COPY --from=0 /opt/sonatype/nexus-iq-server/nexus-iq-cli*.jar /opt/nexus-iq-cli.jar
 
 RUN mkdir -p /workspace
 
