@@ -9,8 +9,8 @@ build-docker:
     - export IQ_VERSION=${CI_BUILD_TAG%%-*}
     - export IMAGE_TAG=$CI_REGISTRY_IMAGE:$IQ_VERSION
     - docker build --tag $IMAGE_TAG --build-arg IQ_VERSION=${IQ_VERSION} .
-    - docker tag $IMAGE_TAG $IMAGE_LATEST_TAG
+    - docker tag $IMAGE_TAG ${IMAGE_TAG}:latest
     - docker push $IMAGE_TAG
-    - docker push $IMAGE_LATEST_TAG
+    - docker push ${IMAGE_TAG}:latest
   only:
     - tags
