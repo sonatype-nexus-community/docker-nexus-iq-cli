@@ -1,4 +1,4 @@
-# Copyright (c) 2018-present Sonatype, Inc.
+# Copyright (c) 2019-present Sonatype, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,22 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ARG IQ_VERSION
+FROM openjdk:8-alpine
 
-FROM sonatype/nexus-iq-server:${IQ_VERSION}
+ENV SONATYPE_DIR=/opt/sonatype
 
-FROM openjdk:8-jre-alpine
+COPY target/docker-nexus-iq-cli.jar ${SONATYPE_DIR}/lib/docker-nexus-iq-cli.jar
+COPY src/main/sh/evaluate ${SONATYPE_DIR}/bin/evaluate
 
-RUN apk add --no-cache bash curl
-
-COPY evaluate /usr/local/bin/
-
-COPY --from=0 /opt/sonatype/nexus-iq-server/nexus-iq-cli*.jar /opt/nexus-iq-cli.jar
-
-RUN mkdir -p /workspace
-
-VOLUME /workspace
-
-WORKDIR /workspace
-
-ENTRYPOINT ["evaluate"]
+RUN find ${SONATYPE_DIR}/bin -type f -exec chmod +x {} \;

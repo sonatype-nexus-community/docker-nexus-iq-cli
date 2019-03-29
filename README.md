@@ -17,23 +17,44 @@
 This docker image wraps around the Nexus IQ CLI. It performs a component intelligence evaluation against the files in the mounted workspace.
 
 ## Usage
-Run image with appropriate options and the list of files or directories which are to be evaluated.
+    Usage: sh evaluate [options] <Archives or directories to scan>
 
-Example: ```docker run -it --rm -v $PWD:/workspace docker-nexus-iq-cli:latest [OPTIONS] [FILES/DIRECTORY TO SCAN]```
-
-See the [Nexus IQ CLI](https://help.sonatype.com/display/NXI/Nexus+IQ+CLI) help page for available options.
-
-### Required options
-* -s, --server-url
-* -a, --authentication
-* -t, --stage
-* -i, --application-id
-
-## The Fine Print
-It is worth noting that this is **NOT SUPPORTED** by Sonatype, and is a contribution of ours to the open source community (read: you!)
-
-Remember:
-
-* Use this contribution at the risk tolerance that you have
-* Do **NOT** file Sonatype support tickets related to this
-* **DO** file issues here on GitHub, so that the community can pitch in
+    Options:
+    
+    -i, --application-id
+      ID of the application on the IQ Server
+    -a, --authentication
+      Authentication credentials to use for the IQ Server, format <username:password>
+    -X, --debug
+      Enable debug logs. WARNING: This may expose sensitive information in the
+      log.
+      Default: false
+    -xc, --expanded-coverage
+      Enable Expanded Coverage analysis.
+      Default: false
+    -w, --fail-on-policy-warnings
+      Fail on policy evaluation warnings
+      Default: false
+    -h, --help
+      Show this help screen
+      Default: false
+    -e, --ignore-system-errors
+      Ignore system errors (IO, network, server, etc)
+      Default: false
+    --pki-authentication
+      Delegate to the JVM for PKI authentication
+      Default: false
+    -p, --proxy
+      Proxy to use, format <host[:port]>. If unspecified, the operating system
+      will be queried for the proxy settings
+    -U, --proxy-user
+      Credentials to use for proxy, format <username:password>
+    -r, --result-file
+      Path to a JSON file where the results of the policy evaluation will be
+      stored in a machine-readable format
+    -s, --server-url
+      URL to the IQ Server to which the scan result should be uploaded
+    -t, --stage
+      The stage to run analysis against. Accepted values:
+      develop|build|stage-release|release|operate
+      Default: build
