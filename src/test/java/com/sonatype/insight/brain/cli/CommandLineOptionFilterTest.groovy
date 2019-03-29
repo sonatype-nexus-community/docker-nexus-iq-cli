@@ -5,6 +5,7 @@
  */
 package com.sonatype.insight.brain.cli
 
+import groovy.cli.commons.CliBuilder
 
 import spock.lang.Specification
 
