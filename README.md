@@ -44,7 +44,7 @@ sh evaluate -s https://lifecycle.myCompany.com -a ciUser:ciPassword -i WEBAPP ta
 
 * The stage to run analysis against. Accepted values: **_develop_** | **_build_** | **_stage-release_** | **_release_** | **_operate_**.  _Default_: **build**
 ```
-      -t, --stage
+      -t, --stage <stage>
 ```
 * Path to a JSON file where the results of the policy evaluation will be stored in a machine-readable format.  _Default_: **none**
 ```
