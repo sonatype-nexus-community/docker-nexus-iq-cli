@@ -15,8 +15,10 @@
 FROM openjdk:8-alpine
 
 ENV SONATYPE_DIR=/opt/sonatype
+ENV SONATYPE_LIB=/opt/sonatype/lib
+ENV SONATYPE_BIN=/opt/sonatype/bin
 
-COPY target/docker-nexus-iq-cli.jar ${SONATYPE_DIR}/lib/docker-nexus-iq-cli.jar
-COPY src/main/sh/evaluate ${SONATYPE_DIR}/bin/evaluate
+COPY target/docker-nexus-iq-cli-jar-with-dependencies.jar ${SONATYPE_LIB}/docker-nexus-iq-cli.jar
+COPY src/main/sh/evaluate ${SONATYPE_BIN}/evaluate
 
 RUN find ${SONATYPE_DIR}/bin -type f -exec chmod +x {} \;

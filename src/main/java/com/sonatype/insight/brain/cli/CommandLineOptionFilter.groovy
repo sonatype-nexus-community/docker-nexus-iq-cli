@@ -57,8 +57,8 @@ class CommandLineOptionFilter
     }
 
     String[] args = []
-    // app ID, server URL and scan targets (i.e. options.arguments) are required
-    if (options.i && options.s && options.arguments()) {
+    // authentication, app ID, server URL and scan targets (i.e. options.arguments) are required
+    if (options.a && options.i && options.s && options.arguments()) {
       args += ifPresentWithValue('-i', options.i)
       args += ifPresentWithValue('-s', options.s)
       args += ifPresentWithValue('-a', options.a)
