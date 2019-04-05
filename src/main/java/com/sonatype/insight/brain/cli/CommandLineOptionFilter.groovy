@@ -83,8 +83,6 @@ class CommandLineOptionFilter
       System.exit(EXIT_INSUFFICIENT_PARAMS)
     }
 
-    System.out.println(args)
-
     return args
   }
 
