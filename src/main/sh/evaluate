@@ -6,8 +6,8 @@
 #
 SONATYPE_OUT_DIR=${SONATYPE_DIR}/out
 SONATYPE_CLI_PKG=com.sonatype.insight.brain.cli
-SONATYPE_RESULTS_FILE=results.txt
+SONATYPE_RESULTS_FILE=results.json
 
 mkdir -p ${SONATYPE_OUT_DIR}
-java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${SONATYPE_CLI_PKG}.NexusPolicyEvaluator $@ 2>&1 | tee ${SONATYPE_OUT_DIR}/${SONATYPE_RESULTS_FILE}
-#java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${SONATYPE_CLI_PKG}.PolicyEvaluationResultsProcessor $@ --results ${SONATYPE_OUT_DIR}/${SONATYPE_RESULTS_FILE}
+java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${SONATYPE_CLI_PKG}.NexusPolicyEvaluator $@ -r ${SONATYPE_OUT_DIR}/${SONATYPE_RESULTS_FILE} 2>&1
+java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${SONATYPE_CLI_PKG}.PolicyEvaluationResultsProcessor -r ${SONATYPE_OUT_DIR}/${SONATYPE_RESULTS_FILE}

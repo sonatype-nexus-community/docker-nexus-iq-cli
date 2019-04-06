@@ -6,24 +6,23 @@
 package com.sonatype.insight.brain.cli
 
 import groovy.cli.commons.CliBuilder
+import groovy.json.JsonSlurper
 
 class PolicyEvaluationResultsProcessor
 {
   static void main(String[] args) {
-    System.out.println(args)
-
     def cli = new CliBuilder()
-    cli.R(type: String, longOpt: 'results', 'results file', args: 1, required: true)
+    cli.r(type: String, longOpt: 'results', 'results file', args: 1, required: true)
 
     def options = cli.parse(args)
-    if (!options || !options.R) {
+    if (!options || !options.r) {
       System.exit(-2)
     }
-    def data = new File(options.R).getText('UTF-8')
-    def isError = false
-    data.eachLine {
-      isError = it.startsWith('[ERROR]')
-    }
-    System.out.println('result = ' + isError)
+    def results = new JsonSlurper().parse(new File(options.r))
+    System.out.println('applicationId: ' + results.applicationId)
+    System.out.println('scanId: ' + results.scanId)
+    System.out.println('reportHtmlUrl: ' + results.reportHtmlUrl)
+    System.out.println('reportPdfUrl: ' + results.reportPdfUrl)
+    System.out.println('reportDataUrl: ' + results.reportDataUrl)
   }
 }
