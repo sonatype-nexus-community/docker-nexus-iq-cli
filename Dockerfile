@@ -14,11 +14,16 @@
 
 FROM openjdk:8-alpine
 
-ENV SONATYPE_DIR=/opt/sonatype
 ENV SONATYPE_LIB=/opt/sonatype/lib
 ENV SONATYPE_BIN=/opt/sonatype/bin
+
+# symlink to binary will go here
+ENV LIFECYCLE_BIN=/lifecycle
+ENV LIFECYCLE_OUT=/lifecycle/out
 
 COPY target/docker-nexus-iq-cli-jar-with-dependencies.jar ${SONATYPE_LIB}/docker-nexus-iq-cli.jar
 COPY src/main/sh/evaluate ${SONATYPE_BIN}/evaluate
 
-RUN find ${SONATYPE_DIR}/bin -type f -exec chmod +x {} \;
+RUN find ${SONATYPE_BIN} -type f -exec chmod +x {} \; \
+  && mkdir -p ${LIFECYCLE_BIN} \
+  && ln -s ${SONATYPE_BIN}/evaluate ${LIFECYCLE_BIN}/evaluate

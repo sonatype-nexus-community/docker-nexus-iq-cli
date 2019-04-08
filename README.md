@@ -11,12 +11,12 @@ This docker image wraps around the Nexus IQ CLI. It performs a component intelli
 
 ## Usage
 ```
-sh evaluate [options] <Archives or directories to scan>
+sh /lifecycle/evaluate [options] <Archives or directories to scan>
 ```
 
 ##### _Example_
 ```
-sh evaluate -s https://lifecycle.myCompany.com -a ciUser:ciPassword -i WEBAPP target/our-web-app.war 
+sh /lifecycle/evaluate -s https://lifecycle.myCompany.com -a ciUser:ciPassword -i WEBAPP target/our-web-app.war 
 ```
  
 ### Available Options

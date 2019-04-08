@@ -4,10 +4,9 @@
 # Includes the third-party code listed at http://links.sonatype.com/products/nexus/attributions.
 # "Sonatype" is a trademark of Sonatype, Inc.
 #
-SONATYPE_OUT_DIR=${SONATYPE_DIR}/out
-SONATYPE_CLI_PKG=com.sonatype.insight.brain.cli
-SONATYPE_RESULTS_FILE=results.txt
+LIFECYCLE_CLI_PKG=com.sonatype.insight.brain.cli
+LIFECYCLE_RESULTS_FILE=lifecycle-results.txt
 
-mkdir -p ${SONATYPE_OUT_DIR}
-java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${SONATYPE_CLI_PKG}.NexusPolicyEvaluator $@ 2>&1 | tee ${SONATYPE_OUT_DIR}/${SONATYPE_RESULTS_FILE}
-#java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${SONATYPE_CLI_PKG}.PolicyEvaluationResultsProcessor $@ --results ${SONATYPE_OUT_DIR}/${SONATYPE_RESULTS_FILE}
+mkdir -p ${LIFECYCLE_OUT}
+java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${LIFECYCLE_CLI_PKG}.NexusPolicyEvaluator $@ 2>&1 | tee ${LIFECYCLE_OUT}/${LIFECYCLE_RESULTS_FILE}
+#java -cp ${SONATYPE_LIB}/docker-nexus-iq-cli.jar ${LIFECYCLE_CLI_PKG}.PolicyEvaluationResultsProcessor $@ --results ${LIFECYCLE_BIN}/${LIFECYCLE_RESULTS_FILE}
