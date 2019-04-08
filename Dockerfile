@@ -17,7 +17,7 @@ FROM openjdk:8-alpine
 ENV SONATYPE_LIB=/opt/sonatype/lib
 ENV SONATYPE_BIN=/opt/sonatype/bin
 
-# symlink to binary will go here
+# symlink to shell script will go here
 ENV LIFECYCLE_BIN=/lifecycle
 ENV LIFECYCLE_OUT=/lifecycle/out
 
