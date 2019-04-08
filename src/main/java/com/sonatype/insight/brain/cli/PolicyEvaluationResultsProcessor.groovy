@@ -19,10 +19,10 @@ class PolicyEvaluationResultsProcessor
       System.exit(-2)
     }
     def results = new JsonSlurper().parse(new File(options.r))
-    System.out.println('applicationId: ' + results.applicationId)
-    System.out.println('scanId: ' + results.scanId)
-    System.out.println('reportHtmlUrl: ' + results.reportHtmlUrl)
-    System.out.println('reportPdfUrl: ' + results.reportPdfUrl)
-    System.out.println('reportDataUrl: ' + results.reportDataUrl)
+    println('applicationId: ' + results.applicationId)
+    println('scanId: ' + results.scanId)
+    println('reportHtmlUrl: ' + results.reportHtmlUrl)
+    println('reportPdfUrl: ' + results.reportPdfUrl)
+    println('reportDataUrl: ' + results.reportDataUrl)
   }
 }
