@@ -12,6 +12,10 @@
     Eclipse Foundation. All other trademarks are the property of their respective owners.
 
 -->
+:no_entry: WARNING: DEPRECATED
+> This implementation has been deprecated in favor of the official Sonatype Docker container.
+> Read more here: https://hub.docker.com/r/sonatype/nexus-iq-cli
+
 ## docker-nexus-iq-cli
 
 This docker image wraps around the Nexus IQ CLI. It performs a component intelligence evaluation against the files in the mounted workspace.
